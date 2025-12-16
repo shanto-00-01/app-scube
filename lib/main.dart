@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           child: PopScope(
             canPop: false,
             onPopInvokedWithResult: (didPop, _) async {},
-            child: GetMaterialApp(
+            child: MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 unselectedWidgetColor: Colors.white,
