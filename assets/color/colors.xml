@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+
+<!-- Initial common colors -->
+<color name="cWhite">#FFFFFFFF</color> 
+<color name="cBlack">#FF000000</color>
+
+
+
+<color name="c0096FC">#FF0096FC</color>
+<color name="c082438">#FF082438</color>
+<color name="c5E5E5E">#FF5E5E5E</color>
+<color name="c398FC9">#FF398FC9</color>
+<color name="c6C99B8">#FF6C99B8</color>
+<color name="cD9E4F1">#FFD9E4F1</color>
+<color name="cA5A7B9">#FFA5A7B9</color>
+<color name="cDF2222">#FFDF2222</color>
+<color name="c78C6FF">#FF78C6FF</color>
+<color name="c04063E">#FF04063E</color>
+
+
+
+</colors>
