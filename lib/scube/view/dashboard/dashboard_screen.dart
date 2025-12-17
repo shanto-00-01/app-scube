@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/action_activities.dart';
+import 'widgets/data_card.dart';
 import 'widgets/empty_data.dart';
 import 'widgets/source_data_dart';
 import 'widgets/top_tabbar.dart';
@@ -85,157 +86,156 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
 
                         //start shanto
-                        Padding(
-                          padding: EdgeInsetsGeometry.symmetric(
-                            horizontal: 8.w,
-                            vertical: 12.h,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Electricity",
-                                style: TextFontStyle.text16c04063EInter500
-                                    .copyWith(color: AppColors.c979797),
+                        if (_selectedTabIndex == 0)
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsGeometry.symmetric(
+                                horizontal: 8.w,
+                                vertical: 12.h,
                               ),
-                              Divider(thickness: 1, color: AppColors.c979797),
-                              PowerWidget(),
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 16.w),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Electricity",
+                                    style: TextFontStyle.text16c04063EInter500
+                                        .copyWith(color: AppColors.c979797),
+                                  ),
+                                  Divider(
+                                    thickness: 1,
+                                    color: AppColors.c979797,
+                                  ),
+                                  PowerWidget(),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(
+                                      horizontal: 16.w,
+                                    ),
 
-                                decoration: BoxDecoration(
-                                  color: AppColors.cE2EBF1,
-                                  borderRadius: BorderRadius.circular(16.r),
-                                ),
-                                alignment: Alignment.center,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    buildSourceDataToggle(
-                                      'Source',
-                                      isSource,
-                                      () {
-                                        setState(() {
-                                          isSource = true;
-                                        });
-                                      },
+                                    decoration: BoxDecoration(
+                                      color: AppColors.cE2EBF1,
+                                      borderRadius: BorderRadius.circular(16.r),
                                     ),
-                                    buildSourceDataToggle(
-                                      "Load",
-                                      !isSource,
-                                      () {
-                                        setState(() {
-                                          isSource = false;
-                                        });
-                                      },
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        buildSourceDataToggle(
+                                          'Source',
+                                          isSource,
+                                          () {
+                                            setState(() {
+                                              isSource = true;
+                                            });
+                                          },
+                                        ),
+                                        buildSourceDataToggle(
+                                          "Load",
+                                          !isSource,
+                                          () {
+                                            setState(() {
+                                              isSource = false;
+                                            });
+                                          },
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  Divider(
+                                    thickness: 1,
+                                    color: AppColors.c979797,
+                                  ),
+                                  if (isSource)
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: double.infinity,
+                                        width: double.infinity,
+                                        child: RawScrollbar(
+                                          controller: _listScrollController,
+                                          thumbVisibility: true,
+                                          thumbColor: AppColors.c0096FC,
+                                          trackVisibility: true,
+                                          radius: Radius.circular(20.r),
+                                          thickness: 2,
+
+                                          padding: EdgeInsets.only(right: 4.w),
+                                          child: ListView(
+                                            physics: BouncingScrollPhysics(),
+                                            controller: _listScrollController,
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 12.w,
+                                            ),
+                                            children: [
+                                              buildDataCard(
+                                                iconImg:
+                                                    Assets.icons.solar.path,
+                                                title: "Data View",
+                                                status: "(Active)",
+                                                data1: "55505.63",
+                                                data2: "58805.63",
+                                                statusColor: Colors.blue,
+                                                iconColor: Colors.black87,
+                                              ),
+                                              const SizedBox(height: 8),
+                                              buildDataCard(
+                                                iconImg:
+                                                    Assets.icons.battery.path,
+                                                title: "Data Type 2",
+                                                status: "(Active)",
+                                                data1: "55505.63",
+                                                data2: "58805.63",
+                                                statusColor: Colors.orange,
+                                                iconColor: Colors.black87,
+                                              ),
+                                              const SizedBox(height: 8),
+                                              buildDataCard(
+                                                iconImg:
+                                                    Assets.icons.power.path,
+                                                title: "Data Type 3",
+                                                status: "(Inactive)",
+                                                data1: "55505.63",
+                                                data2: "58805.63",
+                                                statusColor: Colors.red,
+                                                iconColor: Colors.teal,
+                                                isInactive: true,
+                                              ),
+                                              const SizedBox(height: 8),
+                                              buildDataCard(
+                                                iconImg:
+                                                    Assets.icons.solar.path,
+                                                title: "Data Type 4",
+                                                status: "(Inactive)",
+                                                data1: "12345.63",
+                                                data2: "99887.63",
+                                                statusColor: Colors.purple,
+                                                iconColor: Colors.indigo,
+                                                isInactive: true,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
-                              Divider(thickness: 1, color: AppColors.c979797),
-                            ],
+                            ),
                           ),
-                        ),
                         //End shanto
                       ],
                     ),
                     horizontalPadding: 0,
                   ),
                 ),
-                UIHelper.verticalSpaceMedium,
+                UIHelper.verticalSpaceSmall,
                 ActionActivities(),
               ],
             )
           : _buildWhiteCard(allocate: emptyData),
     );
   }
-}
-
-Widget _buildDataCard({
-  required IconData icon,
-  required String title,
-  required String status,
-  required String data1,
-  required String data2,
-  required Color statusColor,
-  required Color iconColor,
-  bool isInactive = false,
-}) {
-  return Container(
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: isInactive ? Colors.blue.withOpacity(0.05) : Colors.blue.shade50,
-      borderRadius: BorderRadius.circular(8),
-      border: Border.all(color: Colors.blue.shade100),
-    ),
-    child: Row(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(8),
-          child: Icon(icon, size: 32, color: iconColor),
-        ),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 10,
-                    height: 10,
-                    decoration: BoxDecoration(
-                      color: statusColor,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    status,
-                    style: TextStyle(
-                      color: isInactive ? Colors.red : Colors.blue,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 4),
-              Row(
-                children: [
-                  const Text(
-                    "Data 1  : ",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  ),
-                  Text(data1, style: const TextStyle(fontSize: 13)),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text(
-                    "Data 2  : ",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  ),
-                  Text(data2, style: const TextStyle(fontSize: 13)),
-                ],
-              ),
-            ],
-          ),
-        ),
-        const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-      ],
-    ),
-  );
 }
 
 Widget _buildWhiteCard({

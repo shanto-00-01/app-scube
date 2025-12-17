@@ -35,6 +35,12 @@ class TextFontStyle {
     fontWeight: FontWeight.w400,
   );
 
+  static final text14c04063EInter500 = GoogleFonts.inter(
+    color: AppColors.c04063E,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+  );
+
   static final text14cFFFFFFInter700 = GoogleFonts.inter(
     color: AppColors.cWhite,
     fontSize: 14.sp,

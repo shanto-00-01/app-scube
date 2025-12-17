@@ -14,6 +14,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/battery.png
+  AssetGenImage get battery => const AssetGenImage('assets/icons/battery.png');
+
   /// File path: assets/icons/bell.png
   AssetGenImage get bell => const AssetGenImage('assets/icons/bell.png');
 
@@ -36,8 +39,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/icons/logo.png');
 
+  /// File path: assets/icons/power.png
+  AssetGenImage get power => const AssetGenImage('assets/icons/power.png');
+
+  /// File path: assets/icons/solar.png
+  AssetGenImage get solar => const AssetGenImage('assets/icons/solar.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+    battery,
     bell,
     charge,
     chart,
@@ -45,6 +55,8 @@ class $AssetsIconsGen {
     fire,
     generator,
     logo,
+    power,
+    solar,
   ];
 }
 
