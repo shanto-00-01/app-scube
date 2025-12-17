@@ -43,4 +43,6 @@ final class NavigationService {
       await navigator.pushNamed(routeName, arguments: arguments);
     }
   }
+
+  static get goBackV => navigatorKey.currentState!.pop();
 }

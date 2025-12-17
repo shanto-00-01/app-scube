@@ -14,31 +14,56 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/bell.png
+  AssetGenImage get bell => const AssetGenImage('assets/icons/bell.png');
+
+  /// File path: assets/icons/charge.png
+  AssetGenImage get charge => const AssetGenImage('assets/icons/charge.png');
+
+  /// File path: assets/icons/chart.png
+  AssetGenImage get chart => const AssetGenImage('assets/icons/chart.png');
+
+  /// File path: assets/icons/faucet.png
+  AssetGenImage get faucet => const AssetGenImage('assets/icons/faucet.png');
+
+  /// File path: assets/icons/fire.png
+  AssetGenImage get fire => const AssetGenImage('assets/icons/fire.png');
+
+  /// File path: assets/icons/generator.png
+  AssetGenImage get generator =>
+      const AssetGenImage('assets/icons/generator.png');
+
   /// File path: assets/icons/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/icons/logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [logo];
+  List<AssetGenImage> get values => [
+    bell,
+    charge,
+    chart,
+    faucet,
+    fire,
+    generator,
+    logo,
+  ];
 }
 
-class $AssetsSvgGen {
-  const $AssetsSvgGen();
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
 
-  /// File path: assets/svg/logo_scube.svg
-  String get logoScube => 'assets/svg/logo_scube.svg';
-
-  /// File path: assets/svg/scube_logo.svg
-  String get scubeLogo => 'assets/svg/scube_logo.svg';
+  /// File path: assets/images/data_empty.png
+  AssetGenImage get dataEmpty =>
+      const AssetGenImage('assets/images/data_empty.png');
 
   /// List of all assets
-  List<String> get values => [logoScube, scubeLogo];
+  List<AssetGenImage> get values => [dataEmpty];
 }
 
 class Assets {
   const Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
-  static const $AssetsSvgGen svg = $AssetsSvgGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

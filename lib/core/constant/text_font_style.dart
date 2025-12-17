@@ -23,11 +23,22 @@ class TextFontStyle {
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
   );
+  static final text16c04063EInter500 = GoogleFonts.inter(
+    color: AppColors.c04063E,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+  );
 
   static final text16c5E5E5EInter400 = GoogleFonts.inter(
     color: AppColors.c5E5E5E,
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
+  );
+
+  static final text14cFFFFFFInter700 = GoogleFonts.inter(
+    color: AppColors.cWhite,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
   );
   static final text14c0096FCInter500 = GoogleFonts.inter(
     color: AppColors.c0096FC,
@@ -36,6 +47,11 @@ class TextFontStyle {
   );
   static final text12c5E5E5EInter400 = GoogleFonts.inter(
     color: AppColors.c5E5E5E,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static final text12c04063EInter400 = GoogleFonts.inter(
+    color: AppColors.c04063E,
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
