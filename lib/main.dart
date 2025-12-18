@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import 'scube/view/show/show_screen.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   rotation();
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
               },
               navigatorKey: NavigationService.navigatorKey,
               onGenerateRoute: RouteGenerator.generateRoute,
-              home: DashboardScreen(),
+              home: LoginScreen(),
             ),
           ),
         );

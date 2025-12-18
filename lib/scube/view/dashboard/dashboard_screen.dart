@@ -25,27 +25,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedTabIndex = 0;
   bool isSource = true;
 
-  // Scroll controller for the data list
   final ScrollController _listScrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
         title: "SCM",
-        actionsWidgets: [
-          Container(
-            height: 20.h,
-            width: 20.w,
-            margin: EdgeInsets.only(right: 24.w),
-            padding: EdgeInsets.only(top: 14.h, right: 2.w),
-            alignment: Alignment.topRight,
-
-            decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(Assets.icons.bell.path)),
-            ),
-            child: Icon(Icons.circle, color: Colors.red, size: 9.sp),
-          ),
-        ],
+        
       ),
       body: havingData
           ? Column(

@@ -1,9 +1,8 @@
-import 'dart:io';
-
+import 'package:app_scube/scube/view/dashboard/dashboard_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import '../../scube/view/auth/login_screen.dart';
+import '../../scube/view/show/show_screen.dart';
 
 final class Routes {
   Routes._internal();
@@ -11,6 +10,8 @@ final class Routes {
   static Routes get instance => _instance;
 
   static const String logIn = 'login_in';
+  static const String dashboardScreen = 'dashboard_screen';
+  static const String sCMDetailScreen = 'sCM_detail_screen';
 }
 
 final class RouteGenerator {
@@ -22,6 +23,12 @@ final class RouteGenerator {
     switch (settings.name) {
       case Routes.logIn:
         return CupertinoPageRoute(builder: (_) => LoginScreen());
+
+      case Routes.dashboardScreen:
+        return CupertinoPageRoute(builder: (_) => DashboardScreen());
+
+      case Routes.sCMDetailScreen:
+        return CupertinoPageRoute(builder: (_) => SCMDetailScreen());
 
       default:
         return null;

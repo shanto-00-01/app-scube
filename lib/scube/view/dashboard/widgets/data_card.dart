@@ -1,4 +1,6 @@
 
+import 'package:app_scube/core/helper/all_routes.dart';
+import 'package:app_scube/core/helper/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +21,9 @@ Widget buildDataCard({
   // required VoidCallback ontap,
 }) {
   return GestureDetector(
-    onTap: () {}, // ontap,
+    onTap: () {
+      NavigationService.navigateTo(Routes.sCMDetailScreen);
+    }, // ontap,
     child: Container(
       padding: EdgeInsets.all(12.sp),
       decoration: BoxDecoration(

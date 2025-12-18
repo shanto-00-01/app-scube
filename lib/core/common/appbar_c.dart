@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant/text_font_style.dart';
+import '../gen/assets.gen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -30,7 +31,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(title ?? ''),
       titleTextStyle: TextFontStyle.text16c04063EInter500,
-      actions: actionsWidgets ?? [],
+      actions:
+          actionsWidgets ??
+          [
+            Container(
+              height: 20.h,
+              width: 20.w,
+              margin: EdgeInsets.only(right: 24.w),
+              padding: EdgeInsets.only(top: 14.h, right: 2.w),
+              alignment: Alignment.topRight,
+
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(Assets.icons.bell.path),
+                ),
+              ),
+              child: Icon(Icons.circle, color: Colors.red, size: 9.sp),
+            ),
+          ],
     );
   }
 

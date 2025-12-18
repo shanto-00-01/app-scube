@@ -5,6 +5,8 @@ import 'package:app_scube/core/common/password_form_c.dart';
 import 'package:app_scube/core/constant/text_font_style.dart';
 import 'package:app_scube/core/gen/assets.gen.dart';
 import 'package:app_scube/core/gen/colors.gen.dart';
+import 'package:app_scube/core/helper/all_routes.dart';
+import 'package:app_scube/core/helper/navigation_service.dart';
 import 'package:app_scube/core/helper/ui_helper.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -102,7 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     UIHelper.verticalSpace(20.h),
                     customButton(
                       name: "Login",
-                      onCallBack: () {},
+                      onCallBack: () {
+                        NavigationService.navigateTo(Routes.dashboardScreen);
+                      },
                       minWidth: double.infinity,
                       context: context,
                     ),
