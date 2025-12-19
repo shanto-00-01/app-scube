@@ -63,7 +63,7 @@ class GaugePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final double strokeWidth = 18;
+    final double strokeWidth = 12;
     final Offset center = Offset(size.width / 2, size.height / 2);
     final double radius = (size.width - strokeWidth) / 2;
 

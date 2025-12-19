@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          UIHelper.verticalSpace(80.h),
+          UIHelper.verticalSpace(70.h),
           Center(
             child: Image.asset(
               Assets.icons.logo.path,
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               fontSize: 20.sp,
             ),
           ),
-          UIHelper.verticalSpace(80.h),
+          UIHelper.verticalSpace(60.h),
           Expanded(
             child: Container(
               height: double.infinity,

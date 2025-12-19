@@ -105,6 +105,7 @@ class _SCMDetailScreenState extends State<SCMDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            UIHelper.verticalSpaceSmall,
             Center(
               child: CustomGauge(
                 currentValue: isDataView ? 57 : 88974,

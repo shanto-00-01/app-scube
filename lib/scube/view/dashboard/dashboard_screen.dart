@@ -215,7 +215,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     horizontalPadding: 0,
                   ),
                 ),
-                UIHelper.verticalSpaceSmall,
+                
                 ActionActivities(),
               ],
             )

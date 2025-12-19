@@ -38,7 +38,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               height: 20.h,
               width: 20.w,
               margin: EdgeInsets.only(right: 24.w),
-              padding: EdgeInsets.only(top: 14.h, right: 2.w),
+              padding: EdgeInsets.only(top: 16.h, right: 2.w),
               alignment: Alignment.topRight,
 
               decoration: BoxDecoration(
