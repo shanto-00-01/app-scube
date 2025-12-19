@@ -3,13 +3,9 @@ import 'package:app_scube/core/helper/navigation_service.dart';
 import 'package:app_scube/core/helper/rotation_setup.dart';
 import 'package:app_scube/core/helper/theme.dart';
 import 'package:app_scube/scube/view/auth/login_screen.dart';
-import 'package:app_scube/scube/view/dashboard/dashboard_screen.dart';
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-
-import 'scube/view/show/show_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +50,6 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-      
     );
   }
 }

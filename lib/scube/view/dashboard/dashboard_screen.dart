@@ -1,8 +1,6 @@
 import 'package:app_scube/core/common/appbar_c.dart';
 import 'package:app_scube/core/constant/text_font_style.dart';
-import 'package:app_scube/core/gen/assets.gen.dart';
 import 'package:app_scube/core/gen/colors.gen.dart';
-import 'package:app_scube/core/helper/ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,10 +27,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: "SCM",
-        
-      ),
+      appBar: CustomAppBar(title: "SCM"),
       body: havingData
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +66,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ],
                         ),
 
-                        //start shanto
                         if (_selectedTabIndex == 0)
                           Expanded(
                             child: Padding(
@@ -148,59 +142,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           thickness: 2,
 
                                           padding: EdgeInsets.only(right: 4.w),
-                                          child: ListView(
+                                          child: ListView.builder(
+                                            itemCount: sourceAllData.length,
                                             physics: BouncingScrollPhysics(),
                                             controller: _listScrollController,
                                             padding: EdgeInsets.symmetric(
                                               horizontal: 12.w,
+                                              vertical: 2.h,
                                             ),
-                                            children: [
-                                              buildDataCard(
-                                                iconImg:
-                                                    Assets.icons.solar.path,
-                                                title: "Data View",
-                                                status: "(Active)",
-                                                data1: "55505.63",
-                                                data2: "58805.63",
-                                                statusColor: Colors.blue,
-                                                iconColor: Colors.black87,
-                                              ),
-                                              const SizedBox(height: 8),
-                                              buildDataCard(
-                                                iconImg:
-                                                    Assets.icons.battery.path,
-                                                title: "Data Type 2",
-                                                status: "(Active)",
-                                                data1: "55505.63",
-                                                data2: "58805.63",
-                                                statusColor: Colors.orange,
-                                                iconColor: Colors.black87,
-                                              ),
-                                              const SizedBox(height: 8),
-                                              buildDataCard(
-                                                iconImg:
-                                                    Assets.icons.power.path,
-                                                title: "Data Type 3",
-                                                status: "(Inactive)",
-                                                data1: "55505.63",
-                                                data2: "58805.63",
-                                                statusColor: Colors.red,
-                                                iconColor: Colors.teal,
-                                                isInactive: true,
-                                              ),
-                                              const SizedBox(height: 8),
-                                              buildDataCard(
-                                                iconImg:
-                                                    Assets.icons.solar.path,
-                                                title: "Data Type 4",
-                                                status: "(Inactive)",
-                                                data1: "12345.63",
-                                                data2: "99887.63",
-                                                statusColor: Colors.purple,
-                                                iconColor: Colors.indigo,
-                                                isInactive: true,
-                                              ),
-                                            ],
+                                            itemBuilder: (_, idx) {
+                                              return buildDataCard(
+                                                property: sourceAllData[idx],
+                                              );
+                                            },
                                           ),
                                         ),
                                       ),
@@ -209,13 +163,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ),
                             ),
                           ),
-                        //End shanto
                       ],
                     ),
                     horizontalPadding: 0,
                   ),
                 ),
-                
+
                 ActionActivities(),
               ],
             )

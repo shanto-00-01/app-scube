@@ -5,6 +5,18 @@ import '../../../../core/constant/text_font_style.dart';
 import '../../../../core/gen/colors.gen.dart';
 import '../../../../core/helper/ui_helper.dart';
 
+class CardCount {
+  List<ListItem> items;
+  DateTime? date;
+  CardCount({this.items = const [], this.date});
+}
+
+List<CardCount> totalCard = [
+  CardCount(items: items),
+  CardCount(items: items),
+  CardCount(items: items),
+];
+
 class ListItem {
   final String title;
   final Color color;

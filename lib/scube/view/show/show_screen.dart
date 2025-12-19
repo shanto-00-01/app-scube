@@ -6,7 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/common/appbar_c.dart';
 import 'widgets/custom_gauge.dart';
 import 'widgets/data_card.dart';
+import 'widgets/data_filter.dart';
 import 'widgets/revenue.dart';
+import 'widgets/toggle_today_data.dart';
 
 class SCMDetailScreen extends StatefulWidget {
   const SCMDetailScreen({super.key});
@@ -82,54 +84,53 @@ class _SCMDetailScreenState extends State<SCMDetailScreen> {
     return Scaffold(
       appBar: CustomAppBar(title: "SCM"),
       body: Stack(
-        children: [_buildMainContent(context), _buildTopToggleSwitch()],
-      ),
-    );
-  }
+        children: [
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            margin: EdgeInsets.only(top: 45.h),
+            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 45.h),
+            decoration: BoxDecoration(
+              color: AppColors.cWhite,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.r),
+                topRight: Radius.circular(20.r),
+              ),
+              border: Border.all(color: AppColors.cB0B2C2),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  UIHelper.verticalSpaceSmall,
+                  Center(
+                    child: CustomGauge(
+                      currentValue: isDataView ? 57 : 88974,
+                      maxValue: isDataView ? 100 : 100000,
+                      lebel: isDataView ? "kWh/Sqft" : "TK",
+                    ),
+                  ),
+                  if (isDataView) ...[
+                    UIHelper.verticalSpaceSemiLarge,
+                    _buildDateFilters(),
+                    UIHelper.verticalSpaceMedium,
+                    if (!isTodayData) ...[
+                      _buildDateInputRow(context),
+                      UIHelper.verticalSpaceMedium,
+                      _buildErrorText(),
+                    ],
 
-  Widget _buildMainContent(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      margin: EdgeInsets.only(top: 45.h),
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 45.h),
-      decoration: BoxDecoration(
-        color: AppColors.cWhite,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20.r),
-          topRight: Radius.circular(20.r),
-        ),
-        border: Border.all(color: AppColors.cB0B2C2),
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            UIHelper.verticalSpaceSmall,
-            Center(
-              child: CustomGauge(
-                currentValue: isDataView ? 57 : 88974,
-                maxValue: isDataView ? 100 : 100000,
-                lebel: isDataView ? "kWh/Sqft" : "TK",
+                    dataContainer(isTodayData ? 1 : 3),
+                  ] else ...[
+                    UIHelper.verticalSpaceMedium,
+                    ExpandableDataCard(),
+                  ],
+                ],
               ),
             ),
-            if (isDataView) ...[
-              UIHelper.verticalSpaceSemiLarge,
-              _buildDateFilters(),
-              UIHelper.verticalSpaceMedium,
-              if (!isTodayData) ...[
-                _buildDateInputRow(context),
-                UIHelper.verticalSpaceMedium,
-                _buildErrorText(),
-              ],
-
-              dataContainer(isTodayData ? 1 : 3),
-            ] else ...[
-              UIHelper.verticalSpaceMedium,
-              ExpandableDataCard(),
-            ],
-          ],
-        ),
+          ),
+          _buildTopToggleSwitch(),
+        ],
       ),
     );
   }
@@ -225,12 +226,12 @@ class _SCMDetailScreenState extends State<SCMDetailScreen> {
       ),
       child: Row(
         children: [
-          _buildToggleOption(
+          buildToggleOption(
             "Data View",
             isDataView,
             () => setState(() => isDataView = true),
           ),
-          _buildToggleOption(
+          buildToggleOption(
             "Revenue View",
             !isDataView,
             () => setState(() => isDataView = false),
@@ -240,74 +241,22 @@ class _SCMDetailScreenState extends State<SCMDetailScreen> {
     );
   }
 
-  Widget _buildToggleOption(String label, bool isSelected, VoidCallback onTap) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: onTap,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.radio_button_checked,
-              color: isSelected ? AppColors.c0096FC : AppColors.cA5A7B9,
-              size: 20.sp,
-            ),
-            UIHelper.horizontalSpace(6.w),
-            Text(
-              label,
-              style: TextFontStyle.text16c04063EInter500.copyWith(
-                color: isSelected ? AppColors.c0096FC : AppColors.cA5A7B9,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _buildDateFilters() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _buildDateFilterOption(
+        buildDateFilterOption(
           "Today Data",
           isTodayData,
           () => setState(() => isTodayData = true),
         ),
         UIHelper.horizontalSpace(6.w),
-        _buildDateFilterOption(
+        buildDateFilterOption(
           "Custom Date Data",
           !isTodayData,
           () => setState(() => isTodayData = false),
         ),
       ],
-    );
-  }
-
-  Widget _buildDateFilterOption(
-    String label,
-    bool isSelected,
-    VoidCallback onTap,
-  ) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Row(
-        children: [
-          Icon(
-            Icons.circle,
-            size: 12.sp,
-            color: isSelected ? AppColors.c0096FC : AppColors.cA5A7B9,
-          ),
-          UIHelper.horizontalSpace(6.w),
-          Text(
-            label,
-            style: TextFontStyle.text16c04063EInter500.copyWith(
-              fontSize: 12.sp,
-              color: isSelected ? AppColors.c0096FC : AppColors.cA5A7B9,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
