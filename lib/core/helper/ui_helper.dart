@@ -7,16 +7,16 @@ final class UIHelper {
 
 
   //Vertical spacing
-  static Widget verticalSpaceSmall = SizedBox(height: 10.0.w);
-  static Widget verticalSpaceMedium = SizedBox(height: 20.0.w);
-  static Widget verticalSpaceSemiLarge = SizedBox(height: 40.0.w);
-  static Widget verticalSpaceLarge = SizedBox(height: 60.0.w);
+  static Widget get verticalSpaceSmall => SizedBox(height: 10.0.w);
+  static Widget get verticalSpaceMedium => SizedBox(height: 20.0.w);
+  static Widget get verticalSpaceSemiLarge => SizedBox(height: 40.0.w);
+  static Widget get verticalSpaceLarge => SizedBox(height: 60.0.w);
 
   //Horizontal spacing
-  static Widget horizontalSpaceSmall = SizedBox(width: 10.0.w);
-  static Widget horizontalSpaceMedium = SizedBox(width: 20.0.w);
-  static Widget horizontalSpaceSemiLarge = SizedBox(width: 40.0.w);
-  static Widget horizontalSpaceLarge = SizedBox(width: 60.0.w);
+  static Widget get horizontalSpaceSmall => SizedBox(width: 10.0.w);
+  static Widget get horizontalSpaceMedium => SizedBox(width: 20.0.w);
+  static Widget get horizontalSpaceSemiLarge => SizedBox(width: 40.0.w);
+  static Widget get horizontalSpaceLarge => SizedBox(width: 60.0.w);
 
   //Initialize spacing with value
   static Widget horizontalSpace(double width) => SizedBox(width: width);
